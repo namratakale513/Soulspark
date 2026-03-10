@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motivation | Soulspark</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    /* Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        /* Vibrant Animated Gradient */
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Glassmorphism Card */
+    .card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        padding: 50px 40px;
+        border-radius: 30px;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        max-width: 500px;
+        width: 90%;
+        animation: popIn 0.6s ease-out;
+        position: relative;
+    }
+
+    @keyframes popIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Typography */
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        opacity: 0.9;
+        letter-spacing: 1px;
+    }
+
+    .quote-container {
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    #quote {
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1.4;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Button Styles */
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    button {
+        padding: 14px 30px;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Primary Action Button */
+    .btn-primary {
+        background: white;
+        color: #e73c7e;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+    }
+
+    /* Secondary Action Button (Back) */
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+
+    /* Icon styling */
+    i {
+        margin-right: 8px;
+    }
+
+    /* Fade Animation Class */
+    .fade-out {
+        opacity: 0;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="card">
+    <h2><i class="fas fa-bolt"></i> Motivation</h2>
+    
+    <div class="quote-container">
+        <p id="quote">I am capable of achieving great things.</p>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn-primary" onclick="newQuote()">
+            <i class="fas fa-sync-alt"></i> New Affirmation
+        </button>
+        
+        <a href="soulspark.html" class="btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+</div>
+
+<script>
+    const quotes = [
+        "I am capable of achieving great things.",
+        "I believe in my strength.",
+        "I never give up.",
+        "My determination leads to success.",
+        "I can overcome any challenge.",
+        "Every day is a new opportunity to grow.",
+        "I am confident in my abilities.",
+        "Hard work pays off in the end.",
+        "I trust the process of my life.",
+        "I am stronger than my excuses."
+    ];
+
+    function newQuote() {
+        const quoteElement = document.getElementById("quote");
+        
+        // Fade out
+        quoteElement.classList.add("fade-out");
+
+        // Wait for fade out, change text, then fade in
+        setTimeout(() => {
+            let random = Math.floor(Math.random() * quotes.length);
+            quoteElement.innerText = quotes[random];
+            quoteElement.classList.remove("fade-out");
+        }, 300); // 300ms matches the CSS transition time
+    }
+</script>
+
+</body>
+</html>

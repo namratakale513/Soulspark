@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soulspark - EduMindfulness</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    /* Reset and Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        /* Animated Gradient Background */
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Floating Shapes for Background Depth */
+    .shape {
+        position: absolute;
+        filter: blur(50px);
+        z-index: -1;
+        animation: float 6s ease-in-out infinite;
+    }
+    .shape-1 {
+        top: -10%;
+        left: -10%;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+    }
+    .shape-2 {
+        bottom: -10%;
+        right: -10%;
+        width: 400px;
+        height: 400px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        animation-delay: 1s;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+    }
+
+    /* Main Card Container */
+    .card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        padding: 60px 40px;
+        border-radius: 30px;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        max-width: 500px;
+        width: 90%;
+        animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Typography */
+    h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+        font-weight: 300;
+        opacity: 0.9;
+        line-height: 1.5;
+    }
+
+    /* Button Container */
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Button Styles */
+    .btn {
+        padding: 16px 24px;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .btn:active {
+        transform: translateY(1px);
+    }
+
+    /* Specific Button Colors */
+    .motivation {
+        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        color: #333;
+    }
+
+    .selflove {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+        color: #333;
+    }
+
+    .peace {
+        background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        color: #333;
+    }
+
+    /* Footer / Community Section */
+    .community-link {
+        margin-top: 30px;
+        font-size: 14px;
+        opacity: 0.8;
+    }
+    
+    .community-link a {
+        color: white;
+        text-decoration: underline;
+        font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+        h1 { font-size: 32px; }
+        .card { padding: 40px 20px; }
+    }
+</style>
+
+</head>
+<body>
+
+    <!-- Background Shapes -->
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+
+    <div class="card">
+        <h1>Soulspark ✨</h1>
+        <p class="subtitle">A Small Positive Thought Can Change Your Entire Day.</p>
+
+        <div class="button-group">
+            <!-- Motivation Button -->
+            <a href="motivation.html" class="btn motivation">
+                <i class="fas fa-rocket"></i>  Motivation
+            </a>
+
+            <!-- Self Love Button -->
+            <a href="selflove.html" class="btn selflove">
+                <i class="fas fa-heart"></i> Self Love
+            </a>
+
+            <!-- Peace Button -->
+            <a href="peace.html" class="btn peace">
+                <i class="fas fa-leaf"></i>  Peace
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
